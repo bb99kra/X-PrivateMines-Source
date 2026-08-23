@@ -1,0 +1,164 @@
+messages:
+  no-perm: <red>⛔ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You don't have permission!
+  no-mine: <yellow>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You are not a member of any private mine!
+  no-money: <red>💸 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You do not have enough %currency%!
+  mine-generation-started: <gold>📦 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <gray>Generating Private Mine...
+  mine-created: <gold>📦 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <green>Your private mine was created! Use <white>/pmine</white>
+  mine-exists: <red>⛔ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You already have a private mine!
+  mine-expand-success: <green>✔ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your mine has been successfully expanded!
+  mine-expand-failed-max-level: <red>⛔ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your mine is already at the maximum expand!
+  mine-upgrade-success: <green>✅ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Successfully upgraded your mine to <yellow>%tier%</yellow>!
+  mine-upgrade-failed-max-tier: <red>❌ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your mine is already at the highest tier!
+  mine-full: <gold>📦 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>That mine is currently full!
+  mine-close: <red>🔒 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You have closed your private mine.
+  mine-open: <green>🔓 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You have opened your private mine.
+  remove-player: <green>❌ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Successfully removed <yellow>%player%</yellow> from your private mine.
+  teleport-admin: <aqua>🧭 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Teleporting you to <yellow>%player%</yellow>'s <aqua>private mine.
+  delete-admin: <red>🗑 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Deleted <yellow>%player%</yellow>'s private mine. Reset to default.
+  mine-block-changed: <green>♻ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You have changed your mine blocks to <yellow>%block%</yellow>.
+  mine-refill: <green>♻ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your mine has been refilled.
+  player-already-banned: <yellow>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>That player is already banned.
+  player-not-online: <yellow>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>That player is not online.
+  player-not-banned: <yellow>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>That player is not banned.
+  player-banned: <red>🚫 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You have banned <yellow>%player%</yellow>.
+  player-unbanned: <green>✅ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You have unbanned <yellow>%player%</yellow>.
+  cant-ban-yourself: <red>⛔ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You can't ban yourself!
+  cant-unban-yourself: <red>⛔ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You can't unban yourself!
+  cant-kick-yourself: <red>⛔ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You can't kick yourself!
+  player-not-in-mine: <yellow>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>That player is not in your private mine.
+  player-kicked: <green>✅ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You have kicked <yellow>%player%</yellow> from your mine.
+  cant-change-block: <yellow>⌛ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You can only change your mine's content once a day!
+  your-tax: '<aqua>💰 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your tax is: <yellow>%tax%%</yellow>.'
+  tax-set: <green>📈 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Tax set to <yellow>%tax%%</yellow> successfully!
+  invalid-tax: <red>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Please enter a tax between <yellow>0%</yellow> and <yellow>30%</yellow>.
+  your-entry-fee: '<aqua>💵 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your entry fee is: <yellow>%fee%</yellow>.'
+  fee-set: <green>💸 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Entry fee set to <yellow>%fee%</yellow> successfully!
+  invalid-fee: <red>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Fee must be more than <yellow>0</yellow> and ≤ <yellow>1,000,000</yellow>.
+  you-banned: <red>🚫 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You are banned from entering this mine.
+  mine-claimed: <green>🏆 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You have claimed <yellow>%money%</yellow>!
+  invalid-reset-percentage: <red>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Please enter a percentage between <yellow>30</yellow> and <yellow>90</yellow>.
+  reset-percentage-set: <green>♻ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Reset percentage set to <yellow>%reset%</yellow>.
+  mine-invalid-schematic: <red>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Invalid schematic name '<yellow>%name%</yellow>'.
+  mine-reset-cooldown: <red>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <red>Please wait <white>%time%</white> seconds before resetting your mine.
+  no-unclaimed-money: <yellow>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>You have no earnings to claim.
+  mine-already-open: <yellow>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your mine is already open!
+  mine-already-closed: <yellow>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your mine is already closed!
+  mine-name-set: <green>✏ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Mine name set to <yellow>%name%</yellow>.
+  mine-name-cleared: <green>✏ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Mine name cleared.
+  mine-name-too-long: <red>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Name must be <yellow>%max%</yellow> characters or fewer.
+  your-mine-name: '<aqua>✏ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your mine name is: <yellow>%name%</yellow>.'
+  mine-motd-set: <green>📢 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>MOTD set.
+  mine-motd-cleared: <green>📢 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>MOTD cleared.
+  mine-motd-too-long: <red>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>MOTD must be <yellow>%max%</yellow> characters or fewer.
+  your-mine-motd: '<aqua>📢 <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Your mine MOTD is: <yellow>%motd%</yellow>.'
+  mine-motd-header: "<gray>[<yellow>MOTD<gray>] "
+  leaderboard-invalid-category: <red>⚠ <bold><gradient:#FFD700:#FFA500>PRIVATE MINES</gradient></bold>
+    » <white>Unknown category. Available categories<gray>:</gray> <yellow>%categories%</yellow>.
+titles:
+  reset-percentage:
+    enabled: true
+    title: <gradient:#FFD700:#FFA500><bold>Reset Percentage</bold></gradient>
+    subtitle: <gray><italic>Type percentage (e.g. 50). Type 'cancel' to abort.</italic>
+    fade-in: 10
+    stay: 60
+    fade-out: 15
+
+  entry-fee:
+    enabled: true
+    title: <gradient:#00FFA3:#00BFFF><bold>Entry Fee</bold></gradient>
+    subtitle: <gray><italic>Type amount in chat. Type 'cancel' to abort.</italic>
+    fade-in: 10
+    stay: 60
+    fade-out: 15
+
+  tax-percentage:
+    enabled: true
+    title: <gradient:#FF7F50:#FFD700><bold>Tax Percentage</bold></gradient>
+    subtitle: <gray><italic>Type amount in chat. Type 'cancel' to abort.</italic>
+    fade-in: 10
+    stay: 60
+    fade-out: 15
+
+  ban-player:
+    enabled: true
+    title: <gradient:#FF0000:#8B0000><bold>Ban Player</bold></gradient>
+    subtitle: <gray><italic>Type player name in chat. Type 'cancel' to abort.</italic>
+    fade-in: 10
+    stay: 60
+    fade-out: 15
+
+  mine-created:
+    enabled: true
+    title: <gradient:#FFD700:#FFA500><bold>Mine Created</bold></gradient>
+    subtitle: <white>Please use /pmine</white>
+    fade-in: 10
+    stay: 60
+    fade-out: 15
+
+  mine-expanded:
+    enabled: true
+    title: <gradient:#32CD32:#008000><bold>Mine Expanded</bold></gradient>
+    subtitle: <white>You have expanded your mine to <yellow>%xprivatemines_size%</yellow>
+    fade-in: 10
+    stay: 60
+    fade-out: 15
+
+  mine-upgraded:
+    enabled: true
+    title: <gradient:#00BFFF:#1E90FF><bold>Mine Upgraded</bold></gradient>
+    subtitle: <yellow>%xprivatemines_tier%</yellow>
+    fade-in: 10
+    stay: 60
+    fade-out: 15

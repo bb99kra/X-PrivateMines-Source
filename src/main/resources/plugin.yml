@@ -1,0 +1,94 @@
+name: XPrivateMines
+version: 2026.3.0.9
+main: dev.drawethree.xprivatemines.XPrivateMines
+depend: [ helper, Vault, FastAsyncWorldEdit, WorldGuard ]
+authors: [ Drawethree ]
+api-version: 1.13
+website: www.drawethree.dev
+load: POSTWORLD
+softdepend:
+  - PlaceholderAPI
+  - X-Prison
+  - UltraBackpacks
+  - ExcellentEconomy
+  - PlayerPoints
+  - Multiverse-Core
+  - ItemsAdder
+  - Nexo
+  - Oraxen
+permissions:
+  xprivatemines.admin:
+    description: Allows admin access to all XPrivateMines functionality.
+    default: op
+  xprivatemines.command.forcecreate:
+    description: Permission to forcefully create a mine.
+    default: op
+  xprivatemines.command.forcedelete:
+    description: Permission to forcefully delete a mine.
+    default: op
+  xprivatemines.command.forceexpand:
+    description: Permission to forcefully expand a mine.
+    default: op
+  xprivatemines.command.forceupgrade:
+    description: Permission to forcefully upgrade a mine.
+    default: op
+  xprivatemines.command.pregen:
+    description: Permission to pregenerate private mines.
+    default: op
+  xprivatemines.command.pregenstop:
+    description: Permission to stop pregen of private mines.
+    default: op
+  xprivatemines.command.status:
+    description: Permission to show status of mines
+    default: op
+  xprivatemines.command.create:
+    description: Permission to create a private mine.
+    default: true
+  xprivatemines.command.upgrade:
+    description: Permission to upgrade a private mine.
+    default: true
+  xprivatemines.command.expand:
+    description: Permission to expand a private mine.
+    default: true
+  xprivatemines.command.reset:
+    description: Permission to reset a private mine.
+    default: true
+  xprivatemines.command.open:
+    description: Permission to open a private mine.
+    default: true
+  xprivatemines.command.close:
+    description: Permission to close a private mine.
+    default: true
+  xprivatemines.command.entryfee:
+    description: Permission to set entry fee.
+    default: true
+  xprivatemines.command.tax:
+    description: Permission to set tax.
+    default: true
+  xprivatemines.command.tp:
+    description: Permission to tp command.
+    default: true
+  xprivatemines.command.claim:
+    description: Permission to claim unclaimed money.
+    default: true
+  xprivatemines.command.kick:
+    description: Permission to kick a player from mine.
+    default: true
+  xprivatemines.command.ban:
+    description: Permission to ban a player from mine.
+    default: true
+  xprivatemines.command.unban:
+    description: Permission to unban a player from mine.
+    default: true
+  xprivatemines.command.list:
+    description: Permission to list mines.
+    default: true
+  xprivatemines.command.help:
+    description: Permission to view help.
+    default: true
+  xprivatemines.command.reload:
+    description: Permission to reload the plugin.
+    default: op
+  xprivatemines.command.schematic:
+    description: Permission to use the in-game schematic creator (wand + setup GUI).
+    default: op

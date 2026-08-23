@@ -1,0 +1,17 @@
+# Each block key is a weight (relative chance) within the tier.
+# Keys may be vanilla materials (e.g. STONE) or custom-block ids from a supported provider
+# (when that plugin is installed):
+#   ItemsAdder: itemsadder:ruby_block   (real namespaced id)
+#   Nexo:       nexo:ruby_ore           (nexo: prefix + bare id)
+#   Oraxen:     oraxen:ruby_ore         (oraxen: prefix + bare id)
+tiers:
+  1:
+    name: Tier 1
+    upgrade-cost: 0
+    blocks:
+      STONE: 80
+      COBBLESTONE: 20
+      # Example custom blocks (require the respective plugin):
+      # itemsadder:ruby_block: 10
+      # nexo:ruby_ore: 10
+      # oraxen:ruby_ore: 10

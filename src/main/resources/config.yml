@@ -1,0 +1,243 @@
+use-minimessage: true
+# Enables using of minimessage in titles / texts / messages
+
+enable-debug: false
+# Enables extra debug logging (useful for developers)
+
+enable-metrics: false
+# Enables bStats plugin metrics (anonymous usage data)
+
+private-mines-world: private_mines
+# Name of the world where private mines are placed.
+
+last-x: 0
+last-z: 0
+# Internal use only. Tracks placement coordinates for the next mine. Do not modify manually!
+
+default-entry-fee: 500000.0
+# Default entry fee players must pay to enter another player’s mine.
+
+min-entry-fee: 0.0
+max-entry-fee: 1000000.0
+# Allowed range for entry fee values.
+
+min-tax: 0.0
+max-tax: 30.0
+# Allowed tax percentage range players can set for their mines.
+
+default-tax: 10
+# Default tax rate applied to mine earnings.
+
+space-between-mines: 250
+# Distance in blocks between mines to avoid overlaps.
+
+teleport-on-create: true
+# Teleport a player to their mine the moment it is created. Set false to leave them where they are.
+
+teleport-existing-on-create: true
+# When a player who already owns a mine runs /pmine create, teleport them to their existing mine instead of only warning them. Set false to just show the "already have a mine" message.
+
+default-reset-percentage: 50
+# Default percentage of blocks mined before auto-reset.
+
+min-reset-percentage: 30
+max-reset-percentage: 90
+# Allowed range for configurable reset percentage.
+
+reset-check-interval-seconds: 2
+# How frequently (in seconds) to check for auto-reset conditions.
+
+packet-mines: false
+# Packet-based (virtual) mines: ore blocks inside the mining region exist only on players'
+# clients and in an in-memory store - resets are instant with zero world lag, and remaining-block
+# counts are exact. The schematic shell and bedrock walls stay real blocks.
+# REQUIRES 'allow-flight=true' in server.properties (players stand on virtual blocks).
+# Supported on Spigot or Paper 1.20+ (incl. 26.x); older versions auto-fall back to the classic
+# real-block reset. X-Prison integration (autosell, enchants, bombs) requires X-Prison 2026.3.0.0+.
+# Mined progress is memory-only: mines render fully filled again after a server restart.
+
+packet-mines-settings:
+  break-effects: true
+  # Broadcast block-break particles + sound to other players viewing the mine.
+  vanilla-drops-to-inventory: true
+  # Only used when X-Prison is NOT installed: put the mined block into the digger's inventory.
+  instant-break: false
+  # true = every block breaks in a single click regardless of pickaxe tier or block hardness
+  # (the OP-prison feel); false = blocks obey the vanilla break speed (tool tier, Efficiency, Haste).
+  # Players still need permission to mine the mine. Only affects packet (virtual) mines.
+  dig-leniency: 0.85
+  # Fraction of the vanilla-computed break time accepted at dig completion (tolerates timing skew).
+  # Ignored when instant-break is true.
+  teleport-on-reset: false
+  # Packet resets are instant; enable to restore the legacy teleport-to-reset-location behavior.
+  clear-real-interior: true
+  # Packet mines render ore as a client-side overlay over server-side AIR and dig virtually. When a
+  # region changes (create/expand/upgrade) this wipes any REAL blocks left in the mining interior to
+  # air, so a custom schematic whose mining area contains real blocks (e.g. bedrock) doesn't show
+  # through mined-out positions and leave the mine unmineable. Runs at most once per region change,
+  # never per reset. Set false only if your packet schematics have a guaranteed-air mining area.
+  store-eviction-minutes: 0
+  # Free the in-memory block store of mines nobody is viewing every N minutes (0 = disabled).
+  # Note: evicting loses that mine's mined-out progress - it renders fully filled again.
+  max-digs-per-tick: 2000
+  # TPS safety net: how many queued block-breaks are processed per server tick (0 = unlimited).
+  # Sized far above any legitimate per-tick mining rate, so it only spreads a pathological burst
+  # (e.g. a modified client packet-flooding digs) across ticks instead of processing it all in one
+  # tick; any excess simply rolls to the next tick. Raise it for very large servers, or set 0 to
+  # disable. Not an anti-cheat - it never rejects or punishes a dig.
+  max-queued-digs: 20000
+  # Memory safety net: the most dig packets that may sit in the pending queue (0 = unbounded). Once
+  # exceeded (only reachable under a sustained packet flood) the oldest pending digs are dropped so
+  # memory stays bounded; a dropped dig is simply not applied and the client re-syncs on its next
+  # interaction. Legit load never approaches this.
+
+auto-save-interval-seconds: 90
+# How often (in seconds) plugin saves all mine data.
+
+economy:
+  type: Vault # [Available: Vault, X-Prison, ExcellentEconomy, PlayerPoints]
+  currency: tokens # currency name, only used for X-Prison and ExcellentEconomy
+
+player-cooldowns:
+  mine-reset: 10 # in seconds
+  block-change: 86400 # in seconds (1 day)
+
+# Reset your mine by pressing the drop key (Q) while holding a pickaxe, without opening a menu.
+# Fires anywhere inside your own mine's region - including standing on top of the mining area -
+# so dropping a pickaxe anywhere else behaves normally.
+# Requires the xprivatemines.command.reset permission and shares the player-cooldowns.mine-reset
+# cooldown above with /pmine reset and the menu button (the triggers cannot be alternated to reset
+# faster). With packet-mines disabled every reset is a FastAsyncWorldEdit paste, so keep a sensible
+# cooldown if you enable this on a busy server.
+mine-reset-hotkey:
+  enabled: false
+  # true  = sneak + Q (recommended: avoids accidental resets and clashes with other plugins)
+  # false = plain Q
+  require-sneak: true
+
+main-command:
+  - pmine
+  - mine
+  - privatemine
+# Main command aliases
+
+gui:
+  # Blocks selectable in the Block-Change GUI. Entries may be vanilla materials or custom-block
+  # ids from a supported provider (when that plugin is installed):
+  #   ItemsAdder: itemsadder:ruby_block   (real namespaced id)
+  #   Nexo:       nexo:ruby_ore           (nexo: prefix + bare id)
+  #   Oraxen:     oraxen:ruby_ore         (oraxen: prefix + bare id)
+  # Per-block permission: xprivatemines.block.<material_lowercase>, or for custom blocks
+  # xprivatemines.block.<provider>.<id> (e.g. xprivatemines.block.nexo.ruby_ore).
+  blocks:
+    - STONE
+    - COBBLESTONE
+    # Example custom blocks (require the respective plugin):
+    # - itemsadder:ruby_block
+    # - nexo:ruby_ore
+    # - oraxen:ruby_ore
+    - COAL_ORE
+    - IRON_ORE
+    - DEEPSLATE_IRON_ORE
+    - COPPER_ORE
+    - GOLD_ORE
+    - DEEPSLATE_GOLD_ORE
+    - REDSTONE_ORE
+    - DEEPSLATE_REDSTONE_ORE
+    - LAPIS_ORE
+    - DEEPSLATE_LAPIS_ORE
+    - EMERALD_ORE
+    - DEEPSLATE_EMERALD_ORE
+    - DIAMOND_ORE
+    - DEEPSLATE_DIAMOND_ORE
+    - NETHER_QUARTZ_ORE
+    - NETHER_GOLD_ORE
+    - IRON_BLOCK
+    - COPPER_BLOCK
+    - GOLD_BLOCK
+    - LAPIS_BLOCK
+    - REDSTONE_BLOCK
+    - EMERALD_BLOCK
+    - DIAMOND_BLOCK
+    - ANCIENT_DEBRIS
+    - NETHERITE_BLOCK
+# List of blocks players can choose from in the GUI to set their mine content.
+
+sounds:
+  click: UI_BUTTON_CLICK
+  success: ENTITY_PLAYER_LEVELUP
+  info: BLOCK_NOTE_BLOCK_PLING
+  error: BLOCK_NOTE_BLOCK_BASS
+  teleport: ENTITY_ENDERMAN_TELEPORT
+  open: BLOCK_WOODEN_DOOR_OPEN
+  close: BLOCK_WOODEN_DOOR_CLOSE
+  upgrade: UI_TOAST_CHALLENGE_COMPLETE
+# Sound effects used by various plugin features for feedback.
+
+placeholders:
+  xprivatemines_is_open:
+    true: "✔ Open"
+    false: "✖ Closed"
+  xprivatemines_has:
+    true: "true"
+    false: "false"
+# PAPI translations for placeholders
+
+mine-name:
+  max-length: 32
+# Maximum character length of a custom mine name.
+
+mine-motd:
+  max-length: 128
+  show-to-owner: false
+# Maximum length of the mine MOTD. show-to-owner controls whether the owner also sees their own MOTD on entry.
+
+leaderboard:
+  categories:
+    tier:
+      enabled: true
+      display-name: "Top Tiers"
+      gui-title: "<gradient:#FFD700:#FFA500><bold>Leaderboard</bold></gradient> <gray>- Top Tiers"
+      item-name: "<yellow><bold>#%rank%</bold> <white>%mine_name%"
+      item-lore:
+        - " "
+        - "<gray>Owner: <yellow>%owner%"
+        - "<gray>Tier: <green>%tier%"
+        - "<gray>Size: <aqua>%size%x%size%"
+        - " "
+        - "<yellow>➤ Click to visit"
+    size:
+      enabled: true
+      display-name: "Biggest Mines"
+      gui-title: "<gradient:#FFD700:#FFA500><bold>Leaderboard</bold></gradient> <gray>- Biggest Mines"
+      item-name: "<yellow><bold>#%rank%</bold> <white>%mine_name%"
+      item-lore:
+        - " "
+        - "<gray>Owner: <yellow>%owner%"
+        - "<gray>Size: <aqua>%size%x%size%"
+        - " "
+        - "<yellow>➤ Click to visit"
+    tax:
+      enabled: true
+      display-name: "Highest Tax"
+      gui-title: "<gradient:#FFD700:#FFA500><bold>Leaderboard</bold></gradient> <gray>- Highest Tax"
+      item-name: "<yellow><bold>#%rank%</bold> <white>%mine_name%"
+      item-lore:
+        - " "
+        - "<gray>Owner: <yellow>%owner%"
+        - "<gray>Tax: <red>%tax%%"
+        - " "
+        - "<yellow>➤ Click to visit"
+    fee:
+      enabled: true
+      display-name: "Highest Entry Fee"
+      gui-title: "<gradient:#FFD700:#FFA500><bold>Leaderboard</bold></gradient> <gray>- Highest Entry Fee"
+      item-name: "<yellow><bold>#%rank%</bold> <white>%mine_name%"
+      item-lore:
+        - " "
+        - "<gray>Owner: <yellow>%owner%"
+        - "<gray>Entry Fee: <gold>%fee%"
+        - " "
+        - "<yellow>➤ Click to visit"
+# Leaderboard categories. Each category has an optional gui-title, item-name, and item-lore.
+# Placeholders: %rank%, %mine_name%, %owner%, %tier%, %size%, %tax%, %fee%

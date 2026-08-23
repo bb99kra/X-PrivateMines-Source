@@ -1,0 +1,40 @@
+schematic-settings:
+  pmine:
+    permission: xprivatemines.schematic.default
+    # Permission for players to create mine using this schematic
+
+    mine-size: 11
+    # Default size (length/width) of the mine area.
+
+    bedrock-walls: false
+    # Whether to place a 1-block-thick bedrock floor and side walls around the mine region on reset (no top cover).
+
+    max-expand: 10
+    # Maximum number of expansions allowed per mine.
+
+    expand-cost: 1000000.0
+    # Cost to expand the mine.
+
+    spawn: 0;100;0;0.0;0.0
+    # Spawn location inside the mine (x;y;z;yaw;pitch)
+
+    reset-teleport: -27;102;25;0.0;0.0
+    # Where players are teleported during a reset event.
+
+    mine:
+      pos1: -20;82;19
+      pos2: -30;101;29
+      priority: 2
+      wg-flags:
+        block-break: ALLOW
+        upc-enchants: ALLOW
+      # Coordinates and flags defining the mine's block region (WorldGuard or plugin-defined).
+
+    region:
+      pos1: 46;70;73
+      pos2: -75;144;-32
+      priority: 1
+      wg-flags:
+        build: DENY
+        block-break: DENY
+      # Full protected region around the mine (for entry protection, boundaries, etc.).

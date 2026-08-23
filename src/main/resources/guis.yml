@@ -1,0 +1,204 @@
+private-mine-gui:
+  title: <dark_gray>» <gradient:#FFD700:#FFA500><bold>Your Private Mine</bold></gradient>
+    <dark_gray>«
+  rows: 3
+  items:
+    teleport:
+      enabled: true
+      slot: 10
+      material: ENDER_PEARL
+      name: <gradient:#00FF7F:#32CD32>✦ <bold>Teleport to Mine</bold></gradient>
+      lore:
+        - ''
+        - <gray>Instantly warp to your</gray>
+        - <gray>personal mining zone.</gray>
+        - ''
+        - <yellow><italic>Click to teleport.</italic></yellow>
+
+    change-block:
+      enabled: true
+      slot: 11
+      material: DIAMOND_ORE
+      name: <gradient:#00E5FF:#00BFFF>⛏ <bold>Change Mine Block</bold></gradient>
+      lore:
+        - ''
+        - <gray>Select what block</gray>
+        - <gray>your mine regenerates with.</gray>
+        - ''
+        - <yellow><italic>Click to change.</italic></yellow>
+
+    claim-tax:
+      enabled: true
+      slot: 12
+      material: GOLD_INGOT
+      name: <gradient:#FFD700:#FFA500>💰 <bold>Claim Tax Rewards</bold></gradient>
+      lore:
+        - ''
+        - <gray>Collect earnings from</gray>
+        - <gray>others mining in your plot.</gray>
+        - ''
+        - <yellow><italic>Click to claim money.</italic></yellow>
+
+    settings:
+      enabled: true
+      slot: 13
+      material: COMPARATOR
+      name: <gradient:#1E90FF:#4169E1>⚙ <bold>Settings</bold></gradient>
+      lore:
+        - ''
+        - <gray>Adjust access, tax, and visibility</gray>
+        - <gray>for your private mine.</gray>
+        - ''
+        - <yellow><italic>Click to open settings.</italic></yellow>
+
+    upgrade:
+      enabled: true
+      slot: 14
+      material: NETHER_STAR
+      name: <gradient:#FF77FF:#DA70D6>⬛ <bold>Upgrade Mine</bold></gradient>
+      lore:
+        - ''
+        - <gray>Upgrade your mine to the next tier.</gray>
+        - ''
+        - <white>Current Tier:</white> <green>%upgrade_level%</green>
+        - <white>Next Tier Cost:</white> <gold>%upgrade_cost%</gold>
+        - ''
+        - <yellow><italic>Click to upgrade.</italic></yellow>
+
+    expand:
+      enabled: true
+      slot: 15
+      material: NETHER_STAR
+      name: <gradient:#FF77FF:#DA70D6>⬛ <bold>Expand Mine</bold></gradient>
+      lore:
+        - ''
+        - <gray>Increase the size of your mine</gray>
+        - <gray>for more mining space.</gray>
+        - ''
+        - <white>Current Level:</white> <green>%expand_level%</green>
+        - <white>Next Upgrade Cost:</white> <gold>%expand_cost%</gold>
+        - ''
+        - <yellow><italic>Click to expand.</italic></yellow>
+
+    reset:
+      enabled: true
+      slot: 16
+      material: BARRIER
+      name: <gradient:#FF5555:#FF0000>♻ <bold>Reset Mine</bold></gradient>
+      lore:
+        - ''
+        - <gray>Regenerate your mine</gray>
+        - <gray>with your current block settings.</gray>
+        - ''
+        - <yellow><italic>Click to reset.</italic></yellow>
+
+private-mine-settings-gui:
+  title: <dark_gray>» <gradient:#FFD700:#FFA500><bold>Mine Settings</bold></gradient>
+    <dark_gray>«
+  rows: 3
+  items:
+    toggle-open:
+      enabled: true
+      slot: 10
+      material: IRON_DOOR
+      name: <gradient:#FFD700:#FFA500>🚪 <bold>Mine Status:</bold> <green>%status%</green></gradient>
+      lore:
+        - ''
+        - <gray>Toggle your mine between:</gray>
+        - <white>- <green>Open to Public</green></white>
+        - <white>- <red>Private</red></white>
+        - ''
+        - <yellow><italic>Click to toggle.</italic></yellow>
+
+    manage-bans:
+      enabled: true
+      slot: 11
+      material: PLAYER_HEAD
+      name: <gradient:#FF5555:#B22222>🚫 <bold>Manage Banned Players</bold></gradient>
+      lore:
+        - ''
+        - <gray>View or unban players</gray>
+        - <gray>from your private mine.</gray>
+        - ''
+        - <yellow><italic>Click to manage bans.</italic></yellow>
+
+    set-tax:
+      enabled: true
+      slot: 15
+      material: GOLD_INGOT
+      name: <gradient:#FFD700:#FFA500>📊 <bold>Set Tax Rate</bold></gradient>
+      lore:
+        - ''
+        - <gray>Current Rate:</gray> <white>%tax%%</white>
+        - ''
+        - <gray>Control how much you earn</gray>
+        - <gray>from other players mining.</gray>
+        - ''
+        - <yellow><italic>Click to change.</italic></yellow>
+
+    set-entry-fee:
+      enabled: true
+      slot: 16
+      material: EMERALD
+      name: <gradient:#00FF7F:#32CD32>💵 <bold>Set Entry Fee</bold></gradient>
+      lore:
+        - ''
+        - <gray>Current Fee:</gray> <white>%fee%</white>
+        - ''
+        - <gray>Charge visitors to access</gray>
+        - <gray>your mine.</gray>
+        - ''
+        - <yellow><italic>Click to set fee.</italic></yellow>
+
+    set-reset-percentage:
+      enabled: true
+      slot: 13
+      material: CLOCK
+      name: <gradient:#00E5FF:#00BFFF>♻ <bold>Set Reset Percentage</bold></gradient>
+      lore:
+        - ''
+        - <gray>Current Value:</gray> <white>%reset%%</white>
+        - ''
+        - <gray>Controls how much must be</gray>
+        - <gray>mined before auto-reset.</gray>
+        - ''
+        - <yellow><italic>Click to change.</italic></yellow>
+
+block-change-gui:
+  title: <dark_gray>» <gradient:#FFD700:#FFA500><bold>Block Selection</bold></gradient>
+    <gray>|</gray> <white>Private Mine</white> <dark_gray>«
+  rows: 5
+  selected-lore:
+    - ''
+    - <gradient:#00FF7F:#32CD32>✅ <bold>CURRENTLY SELECTED</bold></gradient>
+  unlocked-lore:
+    - ''
+    - <gray>Set your mine block to:</gray>
+    - <white>%block%</white>
+    - ''
+    - <yellow><italic>Click to change.</italic></yellow>
+  locked-lore:
+    - ''
+    - <gradient:#FF5555:#B22222>⛔ Locked Block</gradient>
+    - <dark_gray>Requires permission:</dark_gray>
+    - <gray>xprivatemines.block.%perm%</gray>
+
+private-mine-banned-players-gui:
+  title: <dark_gray>» <gradient:#FF5555:#B22222><bold>Banned Players</bold></gradient>
+    <dark_gray>«
+  rows: 5
+  ban-button:
+    enabled: true
+    material: ANVIL
+    name: <gradient:#FFD700:#FFA500>✋ <bold>Ban a Player</bold></gradient>
+    lore:
+      - ''
+      - <gray>Manually enter a player name</gray>
+      - <gray>to ban from your mine.</gray>
+      - ''
+      - <yellow><italic>Click to type a name.</italic></yellow>
+    slot: 44
+  banned-player:
+    name: <gradient:#FF5555:#B22222>%player%</gradient>
+    lore:
+      - <gray>Click to unban this player.</gray>

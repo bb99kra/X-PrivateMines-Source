@@ -1,0 +1,63 @@
+package dev.drawethree.xprivatemines.command.sub.impl;
+
+import dev.drawethree.xprivatemines.api.model.MineTier;
+import dev.drawethree.xprivatemines.api.model.PrivateMine;
+import dev.drawethree.xprivatemines.command.PrivateMineCommand;
+import dev.drawethree.xprivatemines.command.sub.PrivateMineSubCommand;
+import dev.drawethree.xprivatemines.utils.player.PlayerUtils;
+import java.util.List;
+import java.util.stream.Collectors;
+import me.lucko.helper.utils.Players;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class ForceUpgradeCmd extends PrivateMineSubCommand {
+   public ForceUpgradeCmd(PrivateMineCommand command) {
+      super(command, "forceupgrade");
+   }
+
+   @Override
+   public boolean execute(CommandSender sender, List<String> args) {
+      if (args.isEmpty()) {
+         return false;
+      } else {
+         MineTier tier = null;
+         OfflinePlayer target = Players.getOfflineNullable(args.get(0));
+         if (target == null) {
+            PlayerUtils.sendMessage(sender, "&cUnknown player.");
+            return true;
+         } else {
+            if (args.size() == 2) {
+               tier = this.getCommand().getPlugin().getMineTierManager().getTierStrictly(args.get(1));
+               if (tier == null) {
+                  PlayerUtils.sendMessage(sender, "&cInvalid tier.");
+                  return true;
+               }
+            }
+
+            PrivateMine mine = this.getMinesManager().getPrivateMine(target);
+            if (mine == null) {
+               PlayerUtils.sendMessage(sender, "&cThat player does not have private mine");
+               return true;
+            } else {
+               if (this.getMinesManager().forceUpgrade(sender, mine, tier)) {
+                  PlayerUtils.sendMessage(sender, "&aSuccessfully upgraded " + target.getName() + "'s private mine.");
+               }
+
+               return true;
+            }
+         }
+      }
+   }
+
+   @Override
+   public String getUsage() {
+      return "&e⚠ [&6XPrivateMines&e] &c/pmine forceupgrade [player] <tier> &7~ &fUpgrades player's private mine to specified tier";
+   }
+
+   @Override
+   public List<String> getTabComplete(List<String> args) {
+      return args.size() == 1 ? Players.all().stream().<String>map(Player::getName).collect(Collectors.toList()) : List.of();
+   }
+}
