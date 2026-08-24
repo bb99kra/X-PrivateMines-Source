@@ -243,7 +243,8 @@
             <groupId>dev.drawethree.xprison</groupId>
             <artifactId>X-Prison</artifactId>
             <version>2026.3.4.1</version>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/X-Prison-2026.3.4.1.jar</systemPath>
             <optional>true</optional>
         </dependency>
     </dependencies>
