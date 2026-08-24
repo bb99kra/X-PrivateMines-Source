@@ -110,8 +110,13 @@
 
 ---
 
-### 💻 Build from Source (Maven)
+### 🛠️ Build Requirements & Instructions
 
+#### 📋 System Requirements:
+- **Java:** **JDK 21** *(Recommended: JDK 17 / JDK 21 LTS. Note: JDK 25+ may encounter `TypeTag :: UNKNOWN` due to upstream javac annotation processing changes)*
+- **Maven:** **3.9+**
+
+#### 💻 Build Command:
 ```bash
 # Clone the repository
 git clone https://github.com/bb99kra/X-PrivateMines-Source.git
